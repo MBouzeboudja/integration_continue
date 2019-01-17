@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  bdd:
+    image: 'mysql'
+    expose:
+      - '3306'
+    volumes:
+      - ./index.php:/var/www/html/index.php
+  web:
+    build: ./web/.
+    ports:
+      - '8081:80'
+    links:
+      - bdd
+    depends_on:
+      - bdd
+    volumes:
+      - ./index.php:/var/www/html/index.php
