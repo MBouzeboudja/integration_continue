@@ -11,8 +11,7 @@
   manipuler sous forme de services.
 
   Pour que notre application connaisse le container où se trouve la base de données, il faut qu'elle connaisse son adresse
-  ip, en effet avec docker-compose "links" permet de dire à un container de connaitre un autre container,  
-  c'est-à-dire l'ajouter dans le /etc/hosts.
+  ip, en effet avec docker-compose "links" permet de dire à un container de connaitre un autre container,  c'est-à-dire l'ajouter dans le /etc/hosts.
 
   Le container de notre application ne sert pas à grand chose si  le container de la base de données n'est pas up, du coup, on
   écrit via le mot clé "depends_on" dans docker-compose que le container de notre application dépend de celui de la base de
