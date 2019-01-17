@@ -1,19 +1,19 @@
 version: '3'
 
 services:
-  bdd:
-    image: 'mysql'
+  mysql:
+    image: "mysql:5.7"
+    environment:
+      MYSQL_ROOT_PASSWORD: 'test'
     expose:
       - '3306'
-    volumes:
-      - ./index.php:/var/www/html/index.php
   web:
     build: ./web/.
     ports:
       - '8081:80'
     links:
-      - bdd
+      - mysql
     depends_on:
-      - bdd
+      - mysql
     volumes:
-      - ./index.php:/var/www/html/index.php
+      - ./web/index.php:/var/www/html/index.php
